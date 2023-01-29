@@ -1,0 +1,27 @@
+#include <stdio.h>
+int main()
+{
+    int arr[]={56,12,45,18,90,-112,345};
+    int size=sizeof(arr)/sizeof(arr[0]);
+   
+    
+        for(int i=1;i<size;i++)
+        {
+         int temp=arr[i];
+         int prev_ind=i-1;
+         while( prev_ind>=0 && arr[prev_ind]>temp)
+         {
+             arr[prev_ind+1]=arr[prev_ind];
+             prev_ind-=1;
+         }
+         arr[prev_ind+1]=temp;
+       }
+     
+     for(int i=0;i<size;i++)
+     {
+         printf("%d ",arr[i]);
+     }
+    return 0;
+}
+
+//output = -112 12 18 45 56 90 345 
