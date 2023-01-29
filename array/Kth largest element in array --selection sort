@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include<limits.h>
+void sortArray(int arr[],int start,int k,int size)
+{
+    for(int i=start;i<k;i++)
+    {
+        int maxindex=i;
+        for(int j=i+1;j<=size-1;j++)
+        {
+            if(arr[j]>arr[maxindex])
+            {
+                maxindex=j;
+            }
+        }
+        if(i!=maxindex)
+        {
+            int temp=arr[i];
+            arr[i]=arr[maxindex];
+            arr[maxindex]=temp;
+
+        }
+    }
+    printf("%d",arr[k-1]);
+}
+int main()
+{
+    int arr[]={-123,12,45,78,345,-112,345};
+    int k=5;
+    int size=sizeof(arr)/sizeof(arr[0]);
+    sortArray(arr,0,k,size);
+    return 0;
+}
+
+//output -- 12
